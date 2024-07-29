@@ -65,10 +65,6 @@ Contributions to the Siri Ollama Bot GUI are welcome. Please feel free to submit
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Contact
-
-If you want to contact me, you can reach me at `your.email@example.com`.
-
 ## Acknowledgements
 
 - [Ollama](https://github.com/jmorganca/ollama) for the AI model integration
