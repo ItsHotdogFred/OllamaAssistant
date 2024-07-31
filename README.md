@@ -1,13 +1,20 @@
-# Ollama Bot GUI
+# Siri Ollama Bot GUI
 
-A simple graphical user interface for interacting with the Ollama AI model, built using Python and Tkinter.
+A graphical user interface for interacting with the Ollama AI model, built using Python and Tkinter. This version features dynamic window resizing for a better user experience.
 
 ## Features
 
 - Clean and minimalist interface
 - Integration with Ollama AI model
 - Chat history for contextual conversations
-- Expandable window for better readability of longer responses
+- Dynamic window resizing for better readability of longer responses
+- Simple text display without markdown formatting
+
+## Recent Changes
+
+- Implemented dynamic window resizing: The window now expands automatically as the AI's response grows longer.
+- Removed markdown formatting: Responses are displayed as plain text for simplicity.
+- Added minimum window height to ensure UI elements are always visible.
 
 ## Prerequisites
 
@@ -47,7 +54,7 @@ Before you begin, ensure you have met the following requirements:
 
 3. The GUI window will appear. Enter your question or prompt in the input field and click the send button or press Enter.
 
-4. The AI's response will appear in the expanded text area below the input field.
+4. The AI's response will appear in the text area below the input field. The window will automatically resize as the response grows longer.
 
 ## Customization
 
@@ -55,7 +62,17 @@ You can customize the appearance and behavior of the GUI by modifying the follow
 
 - `initial_width`: Initial width of the window
 - `initial_height`: Initial height of the window
-- `expanded_height`: Height of the window when expanded to show the AI's response
+- `min_height`: Minimum height of the window
+- `expansion_step`: Number of pixels to expand the window height by when needed
+
+## How Dynamic Windowing Works
+
+1. The `check_and_expand_window()` function is called after each chunk of the AI's response is received.
+2. It compares the required height of the text with the available space in the window.
+3. If the text overflows, the window height is increased by `expansion_step` pixels.
+4. The canvas and response text area are resized accordingly.
+
+This process ensures that the entire response is always visible, providing a smooth user experience.
 
 ## Contributing
 
