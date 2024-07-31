@@ -7,7 +7,8 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"/home/ryan/CoolGUI/ExportedFigma/Siama/build/
 
 initial_width = 700
 initial_height = 115
-expanded_height = 600
+min_height = 115
+expansion_step = 10  # Expand by 10px
 
 chat_history = []  # Initialize chat_history as a list
 
@@ -19,10 +20,16 @@ def reset_window_size():
     canvas.configure(height=initial_height)
     responsetext.place(x=27, y=88, width=650, height=27)
 
-def expand_window():
-    window.geometry(f"{initial_width}x{expanded_height}")
-    canvas.configure(height=expanded_height)
-    responsetext.place(x=27, y=88, width=650, height=expanded_height - 88)
+def check_and_expand_window():
+    current_height = window.winfo_height()
+    text_height = responsetext.winfo_reqheight()
+    response_area_height = current_height - 88  # Subtract the height of the upper part
+
+    if text_height > response_area_height:
+        new_height = current_height + expansion_step
+        window.geometry(f"{initial_width}x{new_height}")
+        canvas.configure(height=new_height)
+        responsetext.place(x=27, y=88, width=650, height=new_height - 88)
 
 def getinput():
     global chat_history
@@ -41,7 +48,6 @@ def getinput():
             stream=True,
         )
 
-        expand_window()  # Expand the window before displaying the response
         assistant_response = ""
         for chunk in stream:
             content = chunk['message']['content']
@@ -49,6 +55,7 @@ def getinput():
             responsetext.insert('end', content)
             responsetext.see('end')
             responsetext.update_idletasks()
+            check_and_expand_window()
             assistant_response += content
 
         chat_history.append({"role": "assistant", "content": assistant_response})
@@ -62,6 +69,7 @@ def getinput():
 window = Tk()
 window.geometry(f"{initial_width}x{initial_height}")
 window.configure(bg="#151517")
+window.minsize(initial_width, min_height)
 
 canvas = Canvas(
     window,
@@ -116,7 +124,7 @@ responsetext = Text(
 responsetext.place(x=27, y=88, width=650, height=27)
 responsetext.configure(state="disabled")
 
-window.resizable(False, False)
+window.resizable(False, True)
 window.title("Siri Ollama Bot")
 window.attributes('-topmost', True)
 window.mainloop()
