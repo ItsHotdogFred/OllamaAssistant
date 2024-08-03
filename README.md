@@ -27,7 +27,7 @@ There are a few bugs with the markdown system and isn't the best. I may or may n
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/siri-ollama-bot.git
+   git clone https://github.com/ItsHotdogFred/OllamaAssistant.git
    cd siri-ollama-bot
    ```
 
