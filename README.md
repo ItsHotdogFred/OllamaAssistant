@@ -2,6 +2,8 @@
 
 Siri Ollama Bot is a Python-based chatbot application with a graphical user interface. It uses the Ollama API to interact with the Llama 3 language model, providing a user-friendly interface for conversational AI interactions.
 
+There are a few bugs with the markdown system and isn't the best. I may or may not keep working on this project since I have found other projects I would like to spend more time on. If this does for some reason get some people interested in commiting to this project I am willing to help work on it again.
+
 ## Features
 
 - Graphical User Interface (GUI) built with Tkinter
