@@ -9,7 +9,7 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"DIRECTORY TO GUI FILES")
 initial_width = 700
 initial_height = 115
 min_height = 115
-expansion_step = 10  # Expand by 10px
+expansion_step = 4  # Expand by 10px
 
 chat_history = []  # Initialize chat_history as a list
 
