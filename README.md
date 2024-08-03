@@ -38,6 +38,8 @@ Siri Ollama Bot is a Python-based chatbot application with a graphical user inte
 
 4. Make sure you have Ollama set up and running on your system.
 
+**NOTE** Make sure to input the right directory inside the main.py file. It should point to the file called "frame0" where the GUI images are kept
+
 ## Usage
 
 1. Run the script:
