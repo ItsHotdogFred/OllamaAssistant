@@ -4,7 +4,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Frame, font
 import re
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"/home/ryan/CoolGUI/ExportedFigma/Siama/build/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"DIRECTORY TO GUI FILES")
 
 initial_width = 700
 initial_height = 115
